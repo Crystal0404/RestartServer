@@ -1,0 +1,11 @@
+ {
+	"id": "restartserver",
+	"version": "0.0.1",
+	"name": "RestartServer",
+	"description": "Restart TO Server",
+	"author": "Crystal0404",
+	"link": "None",
+	"dependencies": {
+		"mcdreforged": ">=2.6.0"
+	}
+}
