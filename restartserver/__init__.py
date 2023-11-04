@@ -40,8 +40,7 @@ def restart(server: CommandSource, context: CommandContext):
     else:
         if context['server_name'] in config['ServerFileAddress']:
             os.system(
-                'start cmd /k "cd /{0} {1} && title {3} && {2} -m mcdreforged"'.format(
-                    config['ServerFileAddress'][context['server_name']][0],
+                'start cmd /k "cd /d {0} && title {2} && {1} -m mcdreforged"'.format(
                     config['ServerFileAddress'][context['server_name']],
                     config['python'],
                     context['server_name']
