@@ -4,7 +4,7 @@
 	"name": "RestartServer",
 	"description": "Restart TO Server",
 	"author": "Crystal0404",
-	"link": "None",
+	"link": "https://github.com/Crystal0404/RestartServer",
 	"dependencies": {
 		"mcdreforged": ">=2.6.0"
 	}
