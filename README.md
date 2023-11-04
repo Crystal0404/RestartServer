@@ -32,6 +32,6 @@ python是你的解释器绝对位置,如果你的mcdreforged没有改动解释�
     "python": "D:\\Python\\mcdr\\venv\\Scripts\\python.exe"
 }
 ```
-注意分割符是"\\\"而不是"\\"
+注意分割符数量
 
 剩下的帮助可以使用指令!!restartserver查看
