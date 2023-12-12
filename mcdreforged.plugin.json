@@ -1,8 +1,8 @@
  {
 	"id": "restartserver",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"name": "RestartServer",
-	"description": "Restart TO Server",
+	"description": "Restart Server",
 	"author": "Crystal0404",
 	"link": "https://github.com/Crystal0404/RestartServer",
 	"dependencies": {
