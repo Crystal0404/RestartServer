@@ -58,7 +58,6 @@ def restart(server: CommandSource, context: CommandContext):
 """
 
 
-
 def sth(server: CommandSource):
     server.reply(RTextMCDRTranslation("restartserver.HelpMessage_1"))
     server.reply(RTextMCDRTranslation("restartserver.HelpMessage_2"))
