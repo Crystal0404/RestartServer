@@ -18,7 +18,7 @@ default_config = config.copy()
 
 def on_load(server: PluginServerInterface, prev_module):
     global config
-    server.register_help_message('!!restartserver', '重启指定服务器')
+    server.register_help_message('!!restartserver', server.rtr("restartserver.Help"))
     config = server.load_config_simple('restartserver.json', default_config=default_config)
     command = SimpleCommandBuilder()
     command.command('!!restartserver', sth)
@@ -33,23 +33,24 @@ def on_load(server: PluginServerInterface, prev_module):
 """
 
 
-def restart(server: CommandSource, context: CommandContext):
+def restart(server: CommandSource, context: CommandContext, plg: PluginServerInterface):
     if server.get_permission_level() < config['permission']:
-        text = RText('权限不足', color=RColor.red)
+        text = RText(RTextMCDRTranslation("restartserver.Perm"), color=RColor.red)
         server.reply(text)
     else:
         if context['server_name'] in config['ServerFileAddress']:
             os.system(
-                'start cmd /k "cd /d {0} && title {2} && {1} -m mcdreforged"'.format(
+                'start cmd /k "cd /{0} {1} && title {3} && {2} -m mcdreforged"'.format(
+                    config['ServerFileAddress'][context['server_name']][0],
                     config['ServerFileAddress'][context['server_name']],
                     config['python'],
                     context['server_name']
                 )
             )
-            server.reply(RText('执行成功', color=RColor.green))
-            server.reply(RText('如果没有成功启动,可能出现未知问题,及时联系物理服主,不要多次使用本插件启动', color=RColor.red))
+            server.reply(RText(RTextMCDRTranslation("restartserver.success"), color=RColor.green))
+            server.reply(RText(RTextMCDRTranslation("restartserver.SuccessNext"), color=RColor.red))
         else:
-            server.reply(RText('找不到指定服务器', color=RColor.red))
+            server.reply(RText(RTextMCDRTranslation("restartserver.Fail"), color=RColor.red))
 
 
 """
@@ -57,8 +58,9 @@ def restart(server: CommandSource, context: CommandContext):
 """
 
 
-def sth(server: CommandSource):
-    server.reply('输入!!restartserver <服务器名字> 重启指定服务器\n输入!!restartserver list 查看可用服务器列表')
+def sth(server: CommandSource, plg: PluginServerInterface):
+    server.reply(RTextMCDRTranslation("restartserver.HelpMessage_1"))
+    server.reply(RTextMCDRTranslation("restartserver.HelpMessage_2"))
 
 
 """
@@ -67,8 +69,8 @@ def sth(server: CommandSource):
 
 
 @new_thread
-def restart_list(server: CommandSource):
-    server.reply(RText('有以下可用服务器:', color=RColor.green))
+def restart_list(server: CommandSource, plg: PluginServerInterface):
+    server.reply(RText(RTextMCDRTranslation("restartserver.ServerList"), color=RColor.green))
     for i in config['ServerFileAddress']:
         server.reply(str(i))
         time.sleep(0.1)

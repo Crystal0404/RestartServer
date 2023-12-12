@@ -1,0 +1,10 @@
+{
+  "restartserver.Help": "重启指定服务器",
+  "restartserver.Perm": "权限不足",
+  "restartserver.Success": "执行成功",
+  "restartserver.SuccessNext": "如果没有成功启动,可能出现未知问题,及时联系物理服主,不要多次使用本插件启动",
+  "restartserver.Fail": "找不到服务器",
+  "restartserver.HelpMessage_1": "发送!!restartserver  <服务器名字> 重启指定服务器",
+  "restartserver.HelpMessage_2": "发送!!restartserver list  查看可用服务器列表",
+  "restartserver.ServerList": "有以下可用服务器:"
+}
