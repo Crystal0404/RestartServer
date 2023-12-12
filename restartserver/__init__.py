@@ -18,7 +18,7 @@ default_config = config.copy()
 
 def on_load(server: PluginServerInterface, prev_module):
     global config
-    server.register_help_message('!!restartserver', server.rtr("restartserver.Help"))
+    server.register_help_message('!!restartserver', RTextMCDRTranslation("restartserver.Help"))
     config = server.load_config_simple('restartserver.json', default_config=default_config)
     command = SimpleCommandBuilder()
     command.command('!!restartserver', sth)
