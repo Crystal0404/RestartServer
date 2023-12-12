@@ -1,0 +1,10 @@
+{
+  "restartserver.Help": "Restart the specified server",
+  "restartserver.Perm": "Insufficient permissions",
+  "restartserver.Success": "Execution successful",
+  "restartserver.SuccessNext": "If it does not start successfully, unknown problems may occur. Please contact the administrator in a timely manner and do not use this plugin multiple times to start",
+  "restartserver.Fail": "Server not found",
+  "restartserver.HelpMessage_1": "Send !!restartserver <Server_name>  Restart the specified server",
+  "restartserver.HelpMessage_2": "Send !!restartserver list  View a list of available servers",
+  "restartserver.ServerList": "The following servers can be used:"
+}
