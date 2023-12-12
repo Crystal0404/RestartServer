@@ -33,7 +33,7 @@ def on_load(server: PluginServerInterface, prev_module):
 """
 
 
-def restart(server: CommandSource, context: CommandContext, plg: PluginServerInterface):
+def restart(server: CommandSource, context: CommandContext):
     if server.get_permission_level() < config['permission']:
         text = RText(RTextMCDRTranslation("restartserver.Perm"), color=RColor.red)
         server.reply(text)
@@ -58,7 +58,7 @@ def restart(server: CommandSource, context: CommandContext, plg: PluginServerInt
 """
 
 
-def sth(server: CommandSource, plg: PluginServerInterface):
+def sth(server: CommandSource):
     server.reply(RTextMCDRTranslation("restartserver.HelpMessage_1"))
     server.reply(RTextMCDRTranslation("restartserver.HelpMessage_2"))
 
@@ -69,7 +69,7 @@ def sth(server: CommandSource, plg: PluginServerInterface):
 
 
 @new_thread
-def restart_list(server: CommandSource, plg: PluginServerInterface):
+def restart_list(server: CommandSource):
     server.reply(RText(RTextMCDRTranslation("restartserver.ServerList"), color=RColor.green))
     for i in config['ServerFileAddress']:
         server.reply(str(i))
