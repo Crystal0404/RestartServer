@@ -18,7 +18,7 @@ default_config = config.copy()
 
 def on_load(server: PluginServerInterface, prev_module):
     global config
-    server.register_help_message('!!restartserver', server.rtr("restartserver.Help"))
+    server.register_help_message('!!restartserver', RTextMCDRTranslation("restartserver.Help"))
     config = server.load_config_simple('restartserver.json', default_config=default_config)
     command = SimpleCommandBuilder()
     command.command('!!restartserver', sth)
@@ -33,9 +33,9 @@ def on_load(server: PluginServerInterface, prev_module):
 """
 
 
-def restart(server: CommandSource, context: CommandContext, plg: PluginServerInterface):
+def restart(server: CommandSource, context: CommandContext):
     if server.get_permission_level() < config['permission']:
-        text = RText(plg.rtr("restartserver.Perm"), color=RColor.red)
+        text = RText(RTextMCDRTranslation("restartserver.Perm"), color=RColor.red)
         server.reply(text)
     else:
         if context['server_name'] in config['ServerFileAddress']:
@@ -47,10 +47,10 @@ def restart(server: CommandSource, context: CommandContext, plg: PluginServerInt
                     context['server_name']
                 )
             )
-            server.reply(RText(plg.rtr("restartserver.success"), color=RColor.green))
-            server.reply(RText(plg.rtr("restartserver.SuccessNext"), color=RColor.red))
+            server.reply(RText(RTextMCDRTranslation("restartserver.success"), color=RColor.green))
+            server.reply(RText(RTextMCDRTranslation("restartserver.SuccessNext"), color=RColor.red))
         else:
-            server.reply(RText(plg.rtr("restartserver.Fail"), color=RColor.red))
+            server.reply(RText(RTextMCDRTranslation("restartserver.Fail"), color=RColor.red))
 
 
 """
@@ -58,9 +58,9 @@ def restart(server: CommandSource, context: CommandContext, plg: PluginServerInt
 """
 
 
-def sth(server: CommandSource, plg: PluginServerInterface):
-    server.reply(plg.rtr("restartserver.HelpMessage_1"))
-    server.reply(plg.rtr("restartserver.HelpMessage_2"))
+def sth(server: CommandSource):
+    server.reply(RTextMCDRTranslation("restartserver.HelpMessage_1"))
+    server.reply(RTextMCDRTranslation("restartserver.HelpMessage_2"))
 
 
 """
@@ -69,8 +69,8 @@ def sth(server: CommandSource, plg: PluginServerInterface):
 
 
 @new_thread
-def restart_list(server: CommandSource, plg: PluginServerInterface):
-    server.reply(RText(plg.rtr("restartserver.ServerList"), color=RColor.green))
+def restart_list(server: CommandSource):
+    server.reply(RText(RTextMCDRTranslation("restartserver.ServerList"), color=RColor.green))
     for i in config['ServerFileAddress']:
         server.reply(str(i))
         time.sleep(0.1)
