@@ -46,7 +46,7 @@ def restart(server: CommandSource, context: CommandContext):
                     context['server_name']
                 )
             )
-            server.reply(RText(RTextMCDRTranslation("restartserver.success"), color=RColor.green))
+            server.reply(RText(RTextMCDRTranslation("restartserver.Success"), color=RColor.green))
             server.reply(RText(RTextMCDRTranslation("restartserver.SuccessNext"), color=RColor.red))
         else:
             server.reply(RText(RTextMCDRTranslation("restartserver.Fail"), color=RColor.red))
